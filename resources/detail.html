@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CodeTimer</title>
+    
+    <link href="lib/bootstrap/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/fontawesome/css/all.min.css" rel="stylesheet" />
+    <script src="lib/bootstrap/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>   
+    <link href="style.css" rel="stylesheet"/>
+    
+    <script src="lib/select2/dist/js/select2.min.js"></script>
+    <link href="lib/select2/dist/css/select2.min.css" rel="stylesheet"/>
+    <link href="lib/select2/select2-bootstrap-5-theme.min.css" rel="stylesheet"/>
+    
+
+    <script src="lib/moment/moment.min.js"></script>
+    
+  </head>
+  <body data-bs-theme="dark">
+    <!-- Modal -->
+      
+    <div class="modal modal-sm fade" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="text-end mx-2 my-1">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="loading fs-5 py-2">
+                        <span class="spinner-border spinner-border" role="status" aria-hidden="true"></span>
+                    </div>
+                    Loading...
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    
+
+    <div class="container">
+        <div class="header pt-4">
+            <div class="row">
+                <div class="col-6 col-md-8">
+                    <img src="icons/logo.png" class="logo" onclick="openHomepage()">
+                </div>
+                <div class="col-6 col-md-4 text-end">
+                    <a href="index.html" class="btn btn-sm btn-primary"><i class="fas fa-arrow-left-long"></i> <span class="d-none d-sm-inline-block">Back</span></a>
+                    <a href="./setting.html" class="btn btn-sm btn-primary"><i class="fas fa-sliders"></i> <span class="d-none d-sm-inline-block">Settings</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border border-1 border-dark-subtle bg-secondary-subtle mt-3 p-1 pb-0 d-inline-block w-100">
+            <div class="row">
+                <div class="col-12 col-sm-4 text-center d-flex flex-row">
+                    <div class="time px-2">
+                        <input type="text" name="time_from" id="time_from" class="text-center bg-transparent border-0 w-100" value="11:00" />
+                    </div>
+                    -
+                    <div class="time px-2">
+                        <input type="text" name="time_to" id="time_to" class="text-center bg-transparent border-0 w-100" value="12:00" />
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 text-center">
+                    <div class="d-inline-block mx-2">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="date d-inline-block w-75">
+                        <input type="text" name="date" id="date" class="text-center bg-transparent border-0 w-75" value="01.01.2023" />
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 text-end">
+                    <div class="total">
+                        <input type="text" name="time_total" id="time_total" class="text-center bg-transparent border-0 w-100 text-secondary" readonly="readonly" disabled="disabled" value="00:11:00" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description my-2">
+            <textarea style="min-height: 120px;" class="w-100 p-3 bg-transparent" name="desc" id="desc"></textarea>
+        </div>
+
+        <div class="customer my-2">
+            <script type="text/javascript">
+                $(window).on('ready',function() {
+                    $('select').select2({
+                        theme: "bootstrap-5",
+                    });
+                });
+            </script>
+            <style>
+                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-selection,
+                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-dropdown{
+                    background-color: var(--bs-dark);
+                    color: var(--bs-light);
+                }
+                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered,
+                [data-bs-theme="dark"] .select2-results__option.select2-results__message{
+                    color: var(--bs-light);
+                }
+                [data-bs-theme="dark"] .select2-search__field{
+                    background-color: transparent !important;
+                    color: var(--bs-light) !important;
+                }
+                [data-bs-theme="dark"] .select2-dropdown.select2-dropdown--below,
+                [data-bs-theme="dark"] .select2-container--bootstrap-5.select2-container--focus .select2-selection, 
+                [data-bs-theme="dark"] .select2-container--bootstrap-5.select2-container--open .select2-selection,
+                [data-bs-theme="dark"] .select2-search__field{
+                    border-color: var(--bs-light);
+                }
+                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option.select2-results__option--highlighted{
+                    background-color: var(--bs-secondary);
+                    color: var(--bs-light) !important;
+                }
+            </style>
+            <!--
+            <label for="customerSelect">Customer</label>
+            <select class="form-select" id="customerSelect" aria-label="Customer">
+                <option selected="selected" value="0">No Customer</option>
+                <option value="1">Customer #1</option>
+                <option value="2">Customer #2</option>
+                <option value="3">Customer #3</option>
+            </select>
+            -->
+            
+        </div>
+        <div class="project my-2">
+            <label for="projectSelect">Project</label>
+            <select class="form-select" id="projectSelect" aria-label="Project">
+            </select>
+        </div>
+        <div class="activity my-2">
+            <div class="project my-2">
+                <label for="activitySelect">Activity</label>
+                <select class="form-select" id="activitySelect" aria-label="Activity">
+                </select>
+            </div>
+        </div>
+
+        <div class="btns my-2">
+            <div class="btn btn-primary d-block my-2 py-3 save-item" onclick="saveItem()">
+                <i class="fas fa-save"></i> <span class="text">Save</span>
+            </div>
+            <div class="btn btn-danger d-block my-2 py-3 delete-item" onclick="deleteItem()">
+                <i class="fas fa-trash-alt"></i> Delete
+            </div>
+        </div>
+    </div>
+
+    <script src="js/neutralino.js"></script>
+    <script src="js/datetime.js"></script>
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/API.js"></script>
+    <script src="js/cache.js"></script>
+    <script src="js/detail.js"></script>
+  </body>
+</html>

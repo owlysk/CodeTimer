@@ -1,0 +1,36 @@
+html,body{
+    margin: auto;
+    padding: 0px;
+    font-size: 14px;
+}
+.item-detail{
+    cursor: pointer;
+}
+.item-customer, .item-project, .item-activity{
+    font-size: 13px;
+}
+.logo{
+    cursor: pointer;
+    max-height: 50px;
+}
+#loadingModal .modal-dialog{
+    top: 50%;
+    transform: translateY(-50%) !important;
+}
+
+.footer{
+    font-size: 12px;
+}
+
+.stop-hover{
+    display: none;
+}
+.stop-btn:hover .stop-hover{
+    display: inline-block;
+}
+.stop-btn{
+    min-width: 115px;
+}
+.stop-btn:hover .stop-time{
+    display: none;
+}
