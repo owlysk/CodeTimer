@@ -5,7 +5,7 @@ Neutralino.init();
 Neutralino.events.on("windowClose", onWindowClose);
 
 let tray = {
-    icon: '/resources/images/logo.png',
+    icon: '/resources/icons/logo.png',
     menuItems: [
       
       {id: "open", text: "Open"},
