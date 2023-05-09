@@ -11,5 +11,6 @@
 # Neutralinojs related files
 .storage
 *.log
+.tmp
 
 todo.md

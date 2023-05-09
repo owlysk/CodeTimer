@@ -38,6 +38,8 @@ async function renderActive(item){
     $('.start-btn').addClass('d-none');
     $('.stop-btn').removeClass('d-none');
     $('#desc').attr('readonly','readonly');
+    $('#desc').attr('onclick',`window.location.href='/detail.html?timesheet=${item.id}&active=1'`);
+    $('#desc').addClass('active');
 
     var totalSec = (moment().format('X') - moment(item.begin).format('X'));
     timerDuration = setInterval(function(){
@@ -77,6 +79,8 @@ function renderInactive(){
     $('.start-btn').removeClass('d-none');
     $('.stop-btn').addClass('d-none');
     $('.stop-time').text('00:00:00');
+    $('#desc').removeAttr('onclick');
+    $('#desc').removeClass('active');
 }
 
 

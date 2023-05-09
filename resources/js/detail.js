@@ -4,7 +4,7 @@ init().then(()=>{
     {
         itemId = urlParams.get('timesheet');
         loadItem()
-        
+
     }
     else
     {
@@ -18,6 +18,11 @@ function loadItem(){
     api.makeAPICallAsync("get","/api/timesheets/"+itemId).then((item)=>{
         if(debug) console.log('item', item);
         renderItem(item);
+
+        if(urlParams.has('active'))
+        {
+            renderActive();
+        }
     });
     
 }
@@ -43,6 +48,14 @@ function renderItem(item){
 
     $('#projectSelect').val(item.project)
     $('#activitySelect').val(item.activity)
+}
+
+function renderActive(){
+    $('#time_total').val('');
+    $('#time_total').attr('readonly','readonly');
+    $('#time_to').val('');
+    $('#time_to').attr('readonly','readonly');
+    $('.delete-item').remove();
 }
 
 function renderItemProjects(){
@@ -96,8 +109,11 @@ function saveItem(){
         var dateString = $('#date').val()+' '+$('#time_from').val();
         data.begin = moment(dateString, "DD.MM.YYYY HH:mm:ss").format()
 
-        var dateString = $('#date').val()+' '+$('#time_to').val();
-        data.end = moment(dateString, "DD.MM.YYYY HH:mm:ss").format()
+        if(!urlParams.has('active'))
+        {
+            var dateString = $('#date').val()+' '+$('#time_to').val();
+            data.end = moment(dateString, "DD.MM.YYYY HH:mm:ss").format()
+        }
         
 
         data.description = $('#desc').val()

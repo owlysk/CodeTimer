@@ -34,3 +34,7 @@ html,body{
 .stop-btn:hover .stop-time{
     display: none;
 }
+
+#desc.active{
+    cursor: pointer;
+}
