@@ -148,7 +148,7 @@ function saveItem(){
 
 function renderNewItem(){
     var desc = '';
-    if(urlParams.has('description')) desc = urlParams.get('description');
+    if(urlParams.has('description')) desc = decodeURIComponent(urlParams.get('description'));
      
     $('#desc').val(desc);
     $('#date').val(moment().format("DD.MM.YYYY"))

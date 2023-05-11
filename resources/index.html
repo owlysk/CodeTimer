@@ -55,7 +55,7 @@
                             <input type="text" name="desc" id="desc" placeholder="Description of your work" class="w-100 px-2 py-2 bg-transparent border-0"/>
                         </div>
                         <div class="btns-area d-inline-block float-end">
-                            <div class="btn  btn-primary d-inline-block start-btn px-4" onclick="window.location.href='/detail.html?description='+$('#desc').val();">
+                            <div class="btn  btn-primary d-inline-block start-btn px-4" onclick="window.location.href='/detail.html?description='+encodeURIComponent($('#desc').val());">
                                 <i class="fas fa-play"></i> Start
                             </div>
                             <div class="d-none btn btn-danger d-inline-block stop-btn px-4" onclick="stopItem()">
