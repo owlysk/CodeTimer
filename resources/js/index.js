@@ -120,6 +120,7 @@ async function renderTimesheet(data){
                         totalDayTime+=listItem.duration;
 
                         var durationTime = formatDuration(listItem.duration)
+                        
                         htmlDataItems+=`
                             <div class="border border-1 border-dark-subtle bg-body p-3 d-inline-block w-100 mb-1">
                                 <div class="item-detail d-inline-block" style="width: calc(100% - 130px);" onclick="window.location.href='/detail.html?timesheet=${listItem.id}'">
@@ -128,14 +129,14 @@ async function renderTimesheet(data){
                                     </div>
                                     <!--
                                     <div class="item-customer d-block px-2">
-                                    <li style="color: ${cache._parseProjects[listItem.project].color}">${cache._parseProjects[listItem.project].parentTitle}</li>
+                                    <li style="color: ${((typeof(cache._parseProjects[listItem.project])!="undefined")?cache._parseProjects[listItem.project].color:'#000')}">${((typeof(cache._parseProjects[listItem.project])!=="undefined")?cache._parseProjects[listItem.project].parentTitle:'---')}</li>
                                     </div>
                                     -->
                                     <div class="item-project d-block px-2">
-                                        <li style="color: ${cache._parseProjects[listItem.project].color}">${cache._parseProjects[listItem.project].name}</li>
+                                        <li style="color: ${((typeof(cache._parseProjects[listItem.project])!="undefined")?cache._parseProjects[listItem.project].color:'#000')}">${((typeof(cache._parseProjects[listItem.project])!=="undefined")?cache._parseProjects[listItem.project].name:'---')}</li>
                                     </div>
                                     <div class="item-activity d-block px-2">
-                                    <li style="color: ${cache._parseActivities[listItem.activity].color}">${cache._parseActivities[listItem.activity].name}</li>
+                                    <li style="color: ${((typeof(cache._parseActivities[listItem.activity])!=="undefined")?cache._parseActivities[listItem.activity].color:'#000')}">${((typeof(cache._parseActivities[listItem.activity])!=="undefined")?cache._parseActivities[listItem.activity].name:'---')}</li>
                                     </div>
                                 </div>
                                 <div class="item-btns d-inline-block float-end">

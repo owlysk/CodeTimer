@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/neutralinojs/neutralinojs/main/schemas/neutralino.config.schema.json",
   "applicationId": "sk.owly.CodeTimer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "defaultMode": "window",
   "port": 0,
   "documentRoot": "/resources/",
