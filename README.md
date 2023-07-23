@@ -25,3 +25,6 @@ If you enjoy my app, I appreciate if you buy me a coffee :)
 <a href="https://owly.sk/apps/CodeTimer/screen/screen3.png" target="_blank">
 <img src="https://owly.sk/apps/CodeTimer/screen/screen3.png" alt="Screen3" height="" width="174">
 </a>
+
+## Video
+[Watch video](https://owly.sk/apps/CodeTimer/video/codetimer.mp4)
