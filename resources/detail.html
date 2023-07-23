@@ -84,49 +84,42 @@
             <textarea style="min-height: 120px;" class="w-100 p-3 bg-transparent" name="desc" id="desc"></textarea>
         </div>
 
-        <div class="customer my-2">
-            <script type="text/javascript">
-                $(window).on('ready',function() {
-                    $('select').select2({
-                        theme: "bootstrap-5",
-                    });
+        <script type="text/javascript">
+            $(window).on('ready',function() {
+                $('select').select2({
+                    theme: "bootstrap-5",
                 });
-            </script>
-            <style>
-                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-selection,
-                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-dropdown{
-                    background-color: var(--bs-dark);
-                    color: var(--bs-light);
-                }
-                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered,
-                [data-bs-theme="dark"] .select2-results__option.select2-results__message{
-                    color: var(--bs-light);
-                }
-                [data-bs-theme="dark"] .select2-search__field{
-                    background-color: transparent !important;
-                    color: var(--bs-light) !important;
-                }
-                [data-bs-theme="dark"] .select2-dropdown.select2-dropdown--below,
-                [data-bs-theme="dark"] .select2-container--bootstrap-5.select2-container--focus .select2-selection, 
-                [data-bs-theme="dark"] .select2-container--bootstrap-5.select2-container--open .select2-selection,
-                [data-bs-theme="dark"] .select2-search__field{
-                    border-color: var(--bs-light);
-                }
-                [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option.select2-results__option--highlighted{
-                    background-color: var(--bs-secondary);
-                    color: var(--bs-light) !important;
-                }
-            </style>
-            <!--
+            });
+        </script>
+        <style>
+            [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-selection,
+            [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-dropdown{
+                background-color: var(--bs-dark);
+                color: var(--bs-light);
+            }
+            [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered,
+            [data-bs-theme="dark"] .select2-results__option.select2-results__message{
+                color: var(--bs-light);
+            }
+            [data-bs-theme="dark"] .select2-search__field{
+                background-color: transparent !important;
+                color: var(--bs-light) !important;
+            }
+            [data-bs-theme="dark"] .select2-dropdown.select2-dropdown--below,
+            [data-bs-theme="dark"] .select2-container--bootstrap-5.select2-container--focus .select2-selection, 
+            [data-bs-theme="dark"] .select2-container--bootstrap-5.select2-container--open .select2-selection,
+            [data-bs-theme="dark"] .select2-search__field{
+                border-color: var(--bs-light);
+            }
+            [data-bs-theme="dark"] .select2-container--bootstrap-5 .select2-dropdown .select2-results__options .select2-results__option.select2-results__option--highlighted{
+                background-color: var(--bs-secondary);
+                color: var(--bs-light) !important;
+            }
+        </style>
+        <div class="customer my-2">
             <label for="customerSelect">Customer</label>
             <select class="form-select" id="customerSelect" aria-label="Customer">
-                <option selected="selected" value="0">No Customer</option>
-                <option value="1">Customer #1</option>
-                <option value="2">Customer #2</option>
-                <option value="3">Customer #3</option>
-            </select>
-            -->
-            
+            </select>            
         </div>
         <div class="project my-2">
             <label for="projectSelect">Project</label>

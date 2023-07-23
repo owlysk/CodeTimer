@@ -42,12 +42,46 @@ function renderItem(item){
 
     $('#desc').val(item.description);
 
-
+    renderItemCustomers();
     renderItemProjects();
     renderItemActivities();
 
     $('#projectSelect').val(item.project)
     $('#activitySelect').val(item.activity)
+
+    cache.projects.forEach(function(projectItem,key){
+        if(item.project == projectItem.id)
+        {
+            $('#customerSelect').val(projectItem.customer)
+            return false;
+        }
+    });
+
+    
+    renderUpdateProjectViaCustomer();
+    $('#customerSelect').change(function(){
+        renderUpdateProjectViaCustomer();
+    });
+    
+}
+
+function renderUpdateProjectViaCustomer(){
+    var selectedCustomer = $('#customerSelect').val();
+    var selectedProject = $('#projectSelect').val();
+
+    if(selectedCustomer==0 || selectedCustomer=="") return false;
+
+    renderItemProjects();
+    $(`#projectSelect option[data-customer][data-customer!="${selectedCustomer}"]`).each(function(){
+        $(this).remove();
+    });
+    
+    if(!$(`#projectSelect option[value="${selectedProject}"]`).length)
+    {
+        $(`#projectSelect`).val($(`#projectSelect option:first`).val());
+    }
+
+    $(`#projectSelect`).trigger('change'); 
 }
 
 function renderActive(){
@@ -62,7 +96,7 @@ function renderItemProjects(){
     htmlData = ``;
     cache.projects.forEach(function(item,key){
         htmlData+=`
-            <option value="${item.id}">${item.name}</option>
+            <option value="${item.id}" data-customer="${item.customer}">${item.name}</option>
         `;
     });
     
@@ -78,6 +112,17 @@ function renderItemActivities(){
     });
     
     $('#activitySelect').html(htmlData);
+}
+
+function renderItemCustomers(){
+    htmlData = ``;
+    cache.customers.forEach(function(item,key){
+        htmlData+=`
+            <option value="${item.id}">${item.name}</option>
+        `;
+    });
+    
+    $('#customerSelect').html(htmlData);
 }
 
 function deleteItem(){
@@ -155,9 +200,15 @@ function renderNewItem(){
     $('#time_from').val(moment().format("HH:mm:ss"))
     $('#time_to,#time_total').val('');
 
+    renderItemCustomers();
     renderItemProjects();
     renderItemActivities();
 
     $('.delete-item').remove();
     $('.save-item .text').text('Start');
+
+    renderUpdateProjectViaCustomer();
+    $('#customerSelect').change(function(){
+        renderUpdateProjectViaCustomer();
+    });
 }
