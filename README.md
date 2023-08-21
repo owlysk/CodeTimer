@@ -28,3 +28,8 @@ If you enjoy my app, I appreciate if you buy me a coffee :)
 
 ## Video
 [Watch video](https://owly.sk/apps/CodeTimer/video/codetimer.mp4)
+
+
+<!-- Matomo Image Tracker-->
+<img referrerpolicy="no-referrer-when-downgrade" src="https://analytics.owly.sk/matomo.php?idsite=5&amp;rec=1" style="border:0" alt="" />
+<!-- End Matomo -->
