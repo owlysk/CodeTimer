@@ -63,6 +63,24 @@ function renderItem(item){
         renderUpdateProjectViaCustomer();
     });
     
+    renderUpdateActivitiesViaProject();
+    $('#customerSelect, #projectSelect').change(function(){
+        renderUpdateActivitiesViaProject();
+        if($('#activitySelect option[value="'+item.activity+'"]').length) $('#activitySelect').val(item.activity);
+    });
+
+    $('#activitySelect').val(item.activity);
+}
+
+function renderUpdateActivitiesViaProject(){
+
+    var selectedProject = $('#projectSelect').val();
+    if(selectedProject==0 || selectedProject=="") return false;
+
+    renderItemActivities();
+    $(`#activitySelect option[data-project][data-project!="${selectedProject}"]`).each(function(){
+        if($(this).attr('data-project')!="" && $(this).attr('data-project')!=="null") $(this).remove();
+    });
 }
 
 function renderUpdateProjectViaCustomer(){
@@ -107,7 +125,7 @@ function renderItemActivities(){
     htmlData = ``;
     cache.activities.forEach(function(item,key){
         htmlData+=`
-            <option value="${item.id}">${item.name}</option>
+            <option value="${item.id}" data-project="${item.project}">${item.name}</option>
         `;
     });
     
