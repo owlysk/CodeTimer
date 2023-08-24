@@ -229,4 +229,9 @@ function renderNewItem(){
     $('#customerSelect').change(function(){
         renderUpdateProjectViaCustomer();
     });
+
+    renderUpdateActivitiesViaProject();
+    $('#customerSelect, #projectSelect').change(function(){
+        renderUpdateActivitiesViaProject();
+    });
 }
