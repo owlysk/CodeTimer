@@ -70,6 +70,8 @@ function renderItem(item){
     });
 
     $('#activitySelect').val(item.activity);
+
+    renderCallbacksForSelects();
 }
 
 function renderUpdateActivitiesViaProject(){
@@ -214,6 +216,7 @@ function renderNewItem(){
     if(urlParams.has('description')) desc = decodeURIComponent(urlParams.get('description'));
      
     $('#desc').val(desc);
+    $('#desc').focus();
     $('#date').val(moment().format("DD.MM.YYYY"))
     $('#time_from').val(moment().format("HH:mm:ss"))
     $('#time_to,#time_total').val('');
@@ -234,4 +237,20 @@ function renderNewItem(){
     $('#customerSelect, #projectSelect').change(function(){
         renderUpdateActivitiesViaProject();
     });
+
+    renderCallbacksForSelects();
 }
+
+function renderCallbacksForSelects(){
+    $('.select2-selection').on('focus',function(){
+        //if($('.select2-search__field:visible').length) return false;
+        
+        $(this).closest('div').find('select').select2('open');
+    });
+}
+
+//fix autofocus on open
+$(document).on('select2:open', () => {
+    let allFound = document.querySelectorAll('.select2-container--open .select2-search__field');
+    allFound[allFound.length - 1].focus();
+});
