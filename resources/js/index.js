@@ -146,9 +146,9 @@ async function renderTimesheet(data){
                                     <div class="d-none btn btn-sm btn-primary d-inline-block detail-btn">
                                         <i class="fas fa-search"></i>
                                     </div>
-                                    <div class="btn btn-sm btn-primary d-inline-block repeat-btn" onclick="repeatItem(${listItem.id}); return false;">
+                                    <a href="#" class="btn btn-sm btn-primary d-inline-block repeat-btn" onclick="repeatItem(${listItem.id}); return false;">
                                         <i class="fas fa-repeat"></i>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>`;
                             
