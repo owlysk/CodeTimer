@@ -2,6 +2,7 @@ html,body{
     margin: auto;
     padding: 0px;
     font-size: 14px;
+    overflow-y: auto;
 }
 .item-detail{
     cursor: pointer;
