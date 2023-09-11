@@ -21,7 +21,7 @@ function onWindowClose() {
     Neutralino.app.exit();
 }
 
-
+//if(debug) console.log('port',NL_PORT,NL_TOKEN);
 
 Neutralino.events.on("trayMenuItemClicked", onTrayMenuItemClicked);
 function onTrayMenuItemClicked(event) {
@@ -39,6 +39,12 @@ function onTrayMenuItemClicked(event) {
     }
 }
 
+/*
+//prepare for extensions
+Neutralino.events.on("createTimesheet", (evt) => {
+    console.log(`Extension: ${evt.detail}`);
+});
+*/
 
 async function loadSettings(){
     settingJSON = await Neutralino.storage.getData('setting');
