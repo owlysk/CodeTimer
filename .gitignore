@@ -4,6 +4,7 @@
 # Neutralinojs binaries and builds
 /bin
 /dist
+/dist2
 
 # Neutralinojs client (minified)
 #neutralino.js
@@ -13,4 +14,8 @@
 *.log
 .tmp
 
+# build scripts
+/_app_scaffolds
+/build-*.sh
+/postproc-*.sh
 todo.md

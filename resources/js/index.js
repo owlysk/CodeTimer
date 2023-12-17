@@ -69,6 +69,7 @@ function repeatItem(itemId){
         if(debug) console.log('repeatItem', item);
         activeItemId = item.id
         renderActive(item)
+        window.scrollY(0);
     }
 
 }
