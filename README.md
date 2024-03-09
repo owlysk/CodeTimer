@@ -29,6 +29,29 @@ If you enjoy my app, I appreciate if you buy me a coffee :)
 ## Video
 [Watch video](https://owly.sk/apps/CodeTimer/video/codetimer.mp4)
 
+## Development
+### Requirements:
+- Nodejs and npm
+- Neutralinojs (Install using npm: `npm install -g @neutralinojs/neu`)
+
+### Initial Setup:
+Installs or updates required binaries
+```
+neu update
+```
+
+### Build and Run:
+```
+neu build
+neu run
+```
+
+### Build release:
+Generates `dist/CodeTimer-release.zip` containing all platform binaries
+```
+neu build --release
+```
+
 
 <!-- Matomo Image Tracker-->
 <img referrerpolicy="no-referrer-when-downgrade" src="https://analytics.owly.sk/matomo.php?idsite=5&amp;rec=1" style="border:0" alt="" />
