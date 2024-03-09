@@ -27,7 +27,7 @@
     "window": {
       "title": "CodeTimer",
       "width": 800,
-      "height": 500,
+      "height": 600,
       "minWidth": 200,
       "minHeight": 200,
       "fullScreen": false,
@@ -55,7 +55,7 @@
     },
     "chrome": {
       "width": 800,
-      "height": 500,
+      "height": 600,
       "args": "--user-agent=\"Neutralinojs chrome mode\"",
       "nativeBlockList": [
         "filesystem.*",
