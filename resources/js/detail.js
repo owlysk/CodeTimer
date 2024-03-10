@@ -62,6 +62,8 @@ function renderItem(item){
     $('#customerSelect').change(function(){
         renderUpdateProjectViaCustomer();
     });
+
+    $('#projectSelect').val(item.project);
     
     renderUpdateActivitiesViaProject();
     $('#customerSelect, #projectSelect').change(function(){
