@@ -18,6 +18,13 @@ html,body{
     top: 50%;
     transform: translateY(-50%) !important;
 }
+.update-dot{
+    font-size: 7px;
+    position: relative;
+    top: -5px;
+    margin-left: 3px;
+    display: none;
+}
 
 .footer{
     font-size: 12px;

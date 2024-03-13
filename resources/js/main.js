@@ -39,6 +39,10 @@ function onTrayMenuItemClicked(event) {
     }
 }
 
+Neutralino.events.on("ready", function(){
+    checkUpdate();
+});
+
 /*
 //prepare for extensions
 Neutralino.events.on("createTimesheet", (evt) => {
@@ -80,4 +84,58 @@ function openDetail(){
     Neutralino.app.open({
         "url": "file:///"+NL_CWD+"/resources/detail.html"
     });
+}
+
+async function checkUpdate(forceOpen=0){
+    
+    try {
+
+        initUpdateBtn();
+        if(localStorage.getItem("updateNotify")=="1" && forceOpen==0) return false;
+
+        let url = "https://www.owly.sk/apps/CodeTimer/update/manifest.json";
+        let manifest = await Neutralino.updater.checkForUpdates(url);
+
+        if(manifest.version != NL_APPVERSION) {
+
+            let button = await Neutralino.os.showMessageBox('New version',
+                            `New version of CodeTimer is available!
+
+You are using ${NL_APPVERSION} and new version is ${manifest.version}.
+Do you want to install update now?`,
+                            'YES_NO', 'QUESTION');
+
+            
+            localStorage.setItem("updateNotify", "1");
+            initUpdateBtn();
+
+
+            if(button == 'YES') {
+
+                if(debug)  console.log('installing update');
+                openLoadingDialog();
+
+                await Neutralino.updater.install();
+                await Neutralino.app.restartProcess();    
+            }
+            
+        }
+    } 
+    catch(error) {
+        if(debug) console.log('update check failed', error);
+        await Neutralino.os.showMessageBox('Update failed',
+                            `Update failed, please try again later.`,
+                            'OK', 'ERROR');
+        closeLoadingDialog();
+    }
+
+    
+}
+
+function initUpdateBtn(){
+    if(localStorage.getItem("updateNotify")=="1")
+    {
+        $('.updateBtn').removeClass('d-none');
+        $('.update-dot').show();
+    }
 }
