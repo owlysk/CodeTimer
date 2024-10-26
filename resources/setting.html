@@ -72,6 +72,26 @@
                         <label for="token">API Token</label>
                     </div>
                 </div>
+                <br/><br/><br/><br/>
+                <div class="col-12 col-md-12 mb-2">
+                    <input type="hidden" name="use_only_token" value="0" />
+                    <input type="checkbox" name="use_only_token" value="1" id="use_only_token" />
+                    &nbsp;
+                    <label for="use_only_token">Use only token (allow for Kimai > v.2.20)</label>
+                </div>
+                <div class="col-12 col-md-6 mb-2">
+                    <input type="hidden" name="min_tray" value="0" />
+                    <input type="checkbox" name="min_tray" value="1" id="min_tray" />
+                    &nbsp;
+                    <label for="min_tray">On close minimize to tray</label>
+                </div>
+                <div class="col-12 col-md-6 mb-2">
+                    <input type="hidden" name="always_top" value="0" />
+                    <input type="checkbox" name="always_top" value="1" id="always_top" />
+                    &nbsp;
+                    <label for="always_top">Window always on top</label>
+                </div>
+                <br/><br/>
                 <div class="col-6">
                     <a href="#" class="btn btn-warning w-100" onclick="testConnection()">
                         <i class="fas fa-satellite-dish"></i> Test

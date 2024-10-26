@@ -18,7 +18,19 @@ Neutralino.os.setTray(tray);
 
 
 function onWindowClose() {
-    Neutralino.app.exit();
+
+    if(typeof(setting.min_tray)!=="undefined" && setting.min_tray==1)
+    {
+        if(debug) console.log('minimize to tray',setting)
+        Neutralino.window.hide();
+        //Neutralino.window.minimize();
+    }
+    else
+    {
+        if(debug) console.log('exit app',setting)
+        Neutralino.app.exit();
+    }
+    
 }
 
 //if(debug) console.log('port',NL_PORT,NL_TOKEN);
@@ -61,6 +73,10 @@ var setting,cache;
 async function init(){
     setting = await loadSettings();
     await initCache()
+
+    
+    if(setting.always_top==1) Neutralino.window.setAlwaysOnTop(true);
+    else Neutralino.window.setAlwaysOnTop(false);
 
     if(debug) console.log('inited',setting,cache)
 }
