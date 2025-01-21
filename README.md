@@ -29,6 +29,14 @@ If you enjoy my app, I appreciate if you buy me a coffee :)
 ## Video
 [Watch video](https://owly.sk/apps/CodeTimer/video/codetimer.mp4)
 
+## Kimai demo
+
+You can try CodeTimer with Kimai [DEMO](https://www.kimai.org/en/demo.html):
+- Host : `https://demo.kimai.org`
+- Username : `john_user`
+- API token :  `token_user`
+- Use only token: &#9745;
+
 ## MACos users
 If you are MAC os user, and you want use AppBundle version, you can download release 1.0.13 and update it in app settings to latest CodeTimer version.
 
