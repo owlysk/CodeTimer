@@ -12,6 +12,9 @@ I was using Clockify app, but i decide to install Kimai for reason that data is 
 If you enjoy my app, I appreciate if you buy me a coffee :)  
 <a href="https://www.buymeacoffee.com/owlysk" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
+### Android app
+You can find Android app on [GitHub](https://github.com/owlysk/CodeTimer-Mobile) or [Google Play](https://play.google.com/store/apps/details?id=sk.owly.codetimermobile)  
+<a href="https://play.google.com/store/apps/details?id=sk.owly.codetimermobile" target="_blank"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play" width="250" /></a>
 
 ### Screenshots
 <a href="https://owly.sk/apps/CodeTimer/screen/screen1.png" target="_blank">
